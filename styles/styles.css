@@ -1,18 +1,7 @@
 footer{
-    background-color: black;
     color: white;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    font-size: 1.5vw;
-    padding: 3%;
-    padding-left: 5%;
 }
-footer div{
-    margin-bottom: 1%;
-}
+
 #img-box{
     display: flex;
     justify-content: flex-end;
@@ -118,8 +107,8 @@ body {
                 font-size: 3vw;
             }
             #btm-img{
-                width: 90px;
-                height: 90px;
+                width: 40px;
+                height: 40px;
             }
           }
           .border-top-partial {
