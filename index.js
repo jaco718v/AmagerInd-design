@@ -12,6 +12,8 @@ import {initEvents} from "./pages/events/events.js"
 window.addEventListener("load", async () => {
 
 const templateEvents = await loadTemplate("./pages/events/events.html")
+const templateServices = await loadTemplate("./pages/services/services.html")
+const templateAbout = await loadTemplate("./pages/about/about.html")
 
 adjustForMissingHash()
 
@@ -29,8 +31,20 @@ done()
 .on({
 "/events": () => {
 renderTemplate(templateEvents, "content")
+document.getElementById("title").innerText="events"
+document.getElementById("news-box").style.display="none"
 initEvents()
-}
+},
+"/services": () => {
+    renderTemplate(templateServices, "content")
+    document.getElementById("title").innerText="Services"
+    document.getElementById("news-box").style.display="none"
+    },
+"/about": () => {
+    renderTemplate(templateAbout, "content")
+    document.getElementById("title").innerText="Om Os"
+    document.getElementById("news-box").style.display="none"
+    }
 })
 .notFound(() => {
 })
