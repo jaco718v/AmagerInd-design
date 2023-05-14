@@ -7,13 +7,15 @@ setActiveLink, adjustForMissingHash, renderTemplate, loadTemplate
 } from "./utils.js"
 
 import {initEvents} from "./pages/events/events.js"
-
+import {initNews} from "./pages/news/news.js"
 
 window.addEventListener("load", async () => {
 
 const templateEvents = await loadTemplate("./pages/events/events.html")
 const templateServices = await loadTemplate("./pages/services/services.html")
 const templateAbout = await loadTemplate("./pages/about/about.html")
+const templateNews = await loadTemplate("./pages/news/news.html")
+
 
 adjustForMissingHash()
 
@@ -47,6 +49,11 @@ initEvents()
     document.getElementById("title").innerText="Om Os"
     document.getElementById("news-box").style.display="none"
     document.getElementById("top-box").style.backgroundImage=`url("./images/4.jpg")`
+
+    "/news": () => {
+        renderTemplate(templateNews, "content")
+        initNews()
+
     }
 })
 .notFound(() => {

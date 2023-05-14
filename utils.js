@@ -95,14 +95,6 @@ export function sanitizeStringWithTableRows(tableRows) {
   return secureRows
 }
 
-export async function getEvents(){
-  try {
-    const events = await fetch(API_URL+"/events/").then(handleHttpErrors)
-    return events
-  } catch (error) {
-    console.log(error)
-  }
-}
 export async function getNews(){
   try {
     const news = await fetch(API_URL+"/news/").then(handleHttpErrors)

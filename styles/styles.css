@@ -1,18 +1,7 @@
 footer{
-    background-color: black;
     color: white;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    font-size: 1.5vw;
-    padding: 3%;
-    padding-left: 5%;
 }
-footer div{
-    margin-bottom: 1%;
-}
+
 #img-box{
     display: flex;
     justify-content: flex-end;
@@ -58,7 +47,7 @@ cursor: pointer;
     color: black;
     min-height: 50vh;
     opacity: 0.8;
-    max-width: 35vh;
+    max-width: 30vw;
     font-size: 1.5rem;
 }
 #news-id{
@@ -122,7 +111,24 @@ body {
             min-height: 80vh;
         }
 
-       
+        @media (max-width: 600px) {
+            #news-box{
+                width: 100%;
+                max-width: 100%;
+            }
+            #title{
+                margin-top: 5vh;
+                font-size: 9vw;
+            }
+            footer{
+                font-size: 3vw;
+            }
+            #btm-img{
+                width: 40px;
+                height: 40px;
+            }
+          }
+
           .border-top-partial {
             position: relative;
             }
@@ -148,20 +154,33 @@ body {
             width: 10%;
             border-top: 3px solid darkslategrey;
             }
-            @media (max-width: 600px) {
-                #news-box{
-                    width: 100%;
-                    max-width: 100%;
-                }
-                #title{
-                    margin-top: 5vh;
-                    font-size: 9vw;
-                }
-                footer{
-                    font-size: 3vw;
-                }
-                #btm-img{
-                    width: 90px;
-                    height: 90px;
-                }
-              }
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    height: 96%;
+    background-color: rgb(250, 250, 250, 0.9);
+    z-index: 9999;
+}
+
+.popup-close {
+    position: absolute;
+    top: 0.2vw;
+    right: 1.3vw;
+    cursor: pointer;
+}
+
+.text-container {
+    width: 300px;
+    max-height: 400px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 10;
+    -webkit-box-orient: vertical;
+}
+
