@@ -67,9 +67,26 @@ cursor: pointer;
 body {
     background: linear-gradient(120deg, rgb(250, 250, 250) 18%,rgb(255,222,233) 40%, rgb(255,222,233) 32%,rgb(255,222,233) 10% );
     background-repeat: no-repeat;
-    background-position: top left;
+    background-position:top left;
     margin: 0;
     }
+.section-right{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 2%;
+    margin-bottom: 25vh;
+    box-shadow:1px 1px white;
+    
+}
+.section-left{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    text-align: center;
+}
+
+.mini-title{
+    font-family: titleFont;
+}
     
     .navbar-nav .nav-link:hover {
         color: gold
@@ -111,6 +128,7 @@ body {
                 height: 40px;
             }
           }
+
           .border-top-partial {
             position: relative;
             }
@@ -165,8 +183,4 @@ body {
     -webkit-line-clamp: 10;
     -webkit-box-orient: vertical;
 }
-
-
-
-
 
