@@ -49,7 +49,7 @@ initEvents()
     document.getElementById("title").innerText="Om Os"
     document.getElementById("news-box").style.display="none"
     document.getElementById("top-box").style.backgroundImage=`url("./images/4.jpg")`
-
+},
     "/news": () => {
         renderTemplate(templateNews, "content")
         initNews()
