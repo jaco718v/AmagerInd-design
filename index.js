@@ -33,17 +33,20 @@ done()
 renderTemplate(templateEvents, "content")
 document.getElementById("title").innerText="events"
 document.getElementById("news-box").style.display="none"
+document.getElementById("top-box").style.backgroundImage=`url("./images/2.jpg")`
 initEvents()
 },
 "/services": () => {
     renderTemplate(templateServices, "content")
     document.getElementById("title").innerText="Services"
     document.getElementById("news-box").style.display="none"
+    document.getElementById("top-box").style.backgroundImage=`url("./images/3.jpg")`
     },
 "/about": () => {
     renderTemplate(templateAbout, "content")
     document.getElementById("title").innerText="Om Os"
     document.getElementById("news-box").style.display="none"
+    document.getElementById("top-box").style.backgroundImage=`url("./images/4.jpg")`
     }
 })
 .notFound(() => {
