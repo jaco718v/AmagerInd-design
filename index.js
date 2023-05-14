@@ -9,7 +9,6 @@ setActiveLink, adjustForMissingHash, renderTemplate, loadTemplate
 import {initEvents} from "./pages/events/events.js"
 import {initNews} from "./pages/news/news.js"
 
-
 window.addEventListener("load", async () => {
 
 const templateEvents = await loadTemplate("./pages/events/events.html")
