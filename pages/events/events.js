@@ -51,8 +51,6 @@ function makeList(events) {
 
 
 async function handleClick(eventId) {
-    console.log(`Række med ID ${eventId} blev klikket på!`);
-    document.getElementById("popup").style.display ="block"
     try {
         const event = await fetch(API_URL+"/events/" + eventId).then(handleHttpErrors)
         setUpEventSite(event)

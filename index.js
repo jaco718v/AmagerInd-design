@@ -7,11 +7,13 @@ setActiveLink, adjustForMissingHash, renderTemplate, loadTemplate
 } from "./utils.js"
 
 import {initEvents} from "./pages/events/events.js"
+import {initNews} from "./pages/news/news.js"
 
 
 window.addEventListener("load", async () => {
 
 const templateEvents = await loadTemplate("./pages/events/events.html")
+const templateNews = await loadTemplate("./pages/news/news.html")
 
 adjustForMissingHash()
 
@@ -30,7 +32,11 @@ done()
 "/events": () => {
 renderTemplate(templateEvents, "content")
 initEvents()
-}
+},
+    "/news": () => {
+        renderTemplate(templateNews, "content")
+        initNews()
+    }
 })
 .notFound(() => {
 })

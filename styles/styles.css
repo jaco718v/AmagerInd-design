@@ -155,3 +155,18 @@ body {
     right: 1.3vw;
     cursor: pointer;
 }
+
+.text-container {
+    width: 300px;
+    max-height: 400px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 10;
+    -webkit-box-orient: vertical;
+}
+
+
+
+
+
