@@ -7,6 +7,8 @@ let URL = API_URL+"/news/"
 export async function initNews(){
     await getNews()
 
+    document.getElementById("news-box").style.display = "none"
+
     const clickableRows = document.querySelectorAll('.clickable-row');
     var popupClose = document.querySelector('.popup-close');
 
@@ -38,7 +40,7 @@ export async function initNews(){
         <div class="row clickable-row" data-event-id="${singleNews.id}" style="max-height: 410px; border-top: solid; padding-bottom: 5px; padding-left: 5px">
             <div class="row">
             <div class="col-4" style="padding-top: 5px">
-                <img src=".././images/news-demo.png" style="width: 100%; max-height: 25vw; max-width: 400px; border: 1px solid black; object-fit: cover; object-position: top">
+                <img src="data:image/jpeg;base64,${news.encodedImage}" style="width: 100%; max-height: 25vw; max-width: 400px; border: 1px solid black; object-fit: cover; object-position: top">
             </div>
             <div class="col-8" style="padding-top: 1.7vw">
             <div class="row">
@@ -72,7 +74,7 @@ function setUpNewsSite(singleNews) {
     const newsSite = `
             <div class="row">
                 <div class="col-6">
-                <img src=".././images/news-demo.png" style="width: 100%; object-fit: none; object-position: top; max-height: 21vw; border: 1px solid black; object-fit: cover;">
+                <img src="data:image/jpeg;base64,${singleNews.encodedImage}" style="width: 100%; object-fit: none; object-position: top; max-height: 21vw; border: 1px solid black; object-fit: cover;">
                 </div>
                 <div class="col-6">
                     <h3 style="padding-top: 6.5vw; text-align: center; font-size: 3.2vw;"><b>${singleNews.headline}</b></h3>
@@ -84,3 +86,4 @@ function setUpNewsSite(singleNews) {
     `
     document.getElementById("popup-content").innerHTML = sanitizeStringWithTableRows(newsSite);
 }
+

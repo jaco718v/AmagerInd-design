@@ -3,7 +3,7 @@ import "./navigo_EditedByLars.js" //Will create the global Navigo, with a few ch
 //import "./navigo.min.js" //Will create the global Navigo object used below
 
 import {
-setActiveLink, adjustForMissingHash, renderTemplate, loadTemplate
+    setActiveLink, adjustForMissingHash, renderTemplate, loadTemplate, sanitizeStringWithTableRows
 } from "./utils.js"
 
 import {initEvents} from "./pages/events/events.js"
