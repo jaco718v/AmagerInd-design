@@ -40,7 +40,7 @@ export async function initNews(){
         <div class="row clickable-row" data-event-id="${singleNews.id}" style="max-height: 410px; border-top: solid; padding-bottom: 5px; padding-left: 5px">
             <div class="row">
             <div class="col-4" style="padding-top: 5px">
-                <img src="data:image/jpeg;base64,${news.encodedImage}" style="width: 100%; max-height: 25vw; max-width: 400px; border: 1px solid black; object-fit: cover; object-position: top">
+                <img src="data:image/jpeg;base64,${singleNews.encodedImage}" style="width: 100%; max-height: 25vw; max-width: 400px; border: 1px solid black; object-fit: cover; object-position: top">
             </div>
             <div class="col-8" style="padding-top: 1.7vw">
             <div class="row">
