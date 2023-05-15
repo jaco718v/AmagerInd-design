@@ -12,7 +12,10 @@ import {initNews} from "./pages/news/news.js"
 window.addEventListener("load", async () => {
 
 const templateEvents = await loadTemplate("./pages/events/events.html")
+const templateServices = await loadTemplate("./pages/services/services.html")
+const templateAbout = await loadTemplate("./pages/about/about.html")
 const templateNews = await loadTemplate("./pages/news/news.html")
+
 
 adjustForMissingHash()
 
@@ -30,11 +33,27 @@ done()
 .on({
 "/events": () => {
 renderTemplate(templateEvents, "content")
+document.getElementById("title").innerText="events"
+document.getElementById("news-box").style.display="none"
+document.getElementById("top-box").style.backgroundImage=`url("./images/2.jpg")`
 initEvents()
+},
+"/services": () => {
+    renderTemplate(templateServices, "content")
+    document.getElementById("title").innerText="Services"
+    document.getElementById("news-box").style.display="none"
+    document.getElementById("top-box").style.backgroundImage=`url("./images/3.jpg")`
+    },
+"/about": () => {
+    renderTemplate(templateAbout, "content")
+    document.getElementById("title").innerText="Om Os"
+    document.getElementById("news-box").style.display="none"
+    document.getElementById("top-box").style.backgroundImage=`url("./images/4.jpg")`
 },
     "/news": () => {
         renderTemplate(templateNews, "content")
         initNews()
+
     }
 })
 .notFound(() => {
