@@ -1,11 +1,12 @@
 import { handleHttpErrors, sanitizeStringWithTableRows } from "../../utils.js";
 import { API_URL } from "../../settings.js";
+import { paginator } from "../../lib/paginator/paginate-bootstrap.js";
 
 let URL = API_URL+"/news/"
+const SIZE = 3
 
-
-export async function initNews(){
-    await getNews()
+export async function initNews(pg,match){
+    await getNews(pg, match)
 
 
 
@@ -26,13 +27,30 @@ export async function initNews(){
 }
 
 
-    async function getNews(){
+    async function getNews(pg,match){
+        const TOTAL = await getNewsTotal()
+
+        const p = match?.params?.page || pg 
+        let pageNo = Number(p)
+        let queryString =  `?sort=priority,asc&size=${SIZE}&page=` + (pageNo-1)
+        let navigoRef = `?page=` + (pageNo)
+
         try {
-            const news = await fetch(URL).then(handleHttpErrors)
+            const news = await fetch(URL+queryString).then(handleHttpErrors)
             makeNewsRows(news)
         } catch (error) {
             console.log(error)
         }
+
+        paginator({
+            target: document.getElementById("news-paginator"),
+            total: TOTAL,
+            current: pageNo,
+            click: getNews
+          })
+
+        window.router?.navigate(`/${navigoRef}`, { callHandler: false, updateBrowserURL: true })
+
     }
 
     function makeNewsRows(news) {
@@ -87,3 +105,18 @@ function setUpNewsSite(singleNews) {
     document.getElementById("popup-content").innerHTML = sanitizeStringWithTableRows(newsSite);
 }
 
+async function getNewsTotal(){
+    try{
+        const response = await fetch(URL+"total")
+        .then(handleHttpErrors)
+        
+        if(response<SIZE){
+            return 1
+        }
+  
+        return Math.ceil(response/ SIZE)
+  
+    }catch(err){
+        document.getElementById("error-text").innerText = err.message
+    }
+  }

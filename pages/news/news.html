@@ -1,4 +1,15 @@
 <template>
+  <style>
+    .page-item.active .page-link{
+    background-color: black;
+    border-color: white;
+}
+
+    .page-link{
+      color: #4a505a
+      }
+    
+  </style>
   <div id="news-rows"></div>
   <div class="popup" id="popup" style="display: none;padding: 4%">
     <span class="popup-close">&times;</span>
@@ -6,4 +17,5 @@
 
     </div>
   </div>
+  <div id="news-paginator" class="pagination justify-content-center navbar-dark" style="margin-top:10px;"></div>
 </template>
