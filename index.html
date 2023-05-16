@@ -79,14 +79,14 @@ integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jI
             </div>
         
             <script>
-                // Fetch data from API
+                
                 fetch('http://localhost:8080/api/news/')
                 .then(response => response.json())
                 .then(data => {
-                    // Sort the news objects by priority
+                    
+
                     data.sort((a, b) => a.priority - b.priority);
                     
-                    // Update HTML elements with fetched data from the news with the lowest priority
                     document.getElementById('news-headline').innerText = data[0].headline;
                     document.getElementById('news-text').innerText = data[0].textField;
                     document.getElementById('news-priority').innerText = 'Priority: ' + data[0].priority;
