@@ -7,7 +7,7 @@ let URL = API_URL+"/news/"
 export async function initNews(){
     await getNews()
 
-    document.getElementById("news-box").style.display = "none"
+
 
     const clickableRows = document.querySelectorAll('.clickable-row');
     var popupClose = document.querySelector('.popup-close');
