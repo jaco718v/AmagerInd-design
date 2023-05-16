@@ -61,7 +61,8 @@ initEvents()
     document.getElementById("title").style.color="rgb(255,217,228)"
     document.getElementById("news-box").style.display="none"
     document.getElementById("second-hand").style.display="none"
-    document.getElementById("top-box").style.backgroundImage=`url("./images/3.jpg")`
+    document.getElementById("top-box").style.backgroundImage=`url("./images/butik.png")`
+    document.getElementById("top-box").style.backgroundSize = "cover";
     },
 "/about": () => {
     renderTemplate(templateAbout, "content")
