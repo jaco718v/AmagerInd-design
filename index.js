@@ -9,6 +9,7 @@ import {
   loadTemplate,
 } from "./utils.js";
 
+
 import { initEvents } from "./pages/events/events.js";
 import { initNews } from "./pages/news/news.js";
 

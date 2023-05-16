@@ -5,6 +5,7 @@ let URL = API_URL+"/events/"
 
 export async function initEvents(){
     await getEvents()
+    document.getElementById("news-box").style.display = "none"
 
     const clickableRows = document.querySelectorAll('.clickable-row');
     var popupClose = document.querySelector('.popup-close');
