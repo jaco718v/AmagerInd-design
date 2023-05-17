@@ -89,6 +89,7 @@ body {
 .section-right {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  margin: 0;
   margin: 2%;
   margin-bottom: 25vh;
   box-shadow: 2px 5px white;
@@ -98,6 +99,7 @@ body {
 .section-left {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  margin-top: 0;
   margin: 2%;
   margin-bottom: 25vh;
   box-shadow: -2px 5px 1px 1px white;
