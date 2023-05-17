@@ -12,13 +12,6 @@ import {
 import { initEvents } from "./pages/events/events.js";
 import { initNews } from "./pages/news/news.js";
 
-document.getElementById("facebook").onclick = function () {
-  location.href = "https://www.facebook.com/amagerrecords";
-};
-
-document.getElementById("instagram").onclick = function () {
-  location.href = "https://www.instagram.com/amagerrecords/";
-};
 window.addEventListener("load", async () => {
   const templateEvents = await loadTemplate("./pages/events/events.html");
   const templateServices = await loadTemplate("./pages/services/services.html");
@@ -85,7 +78,6 @@ initEvents()
 })
 .resolve()
 });
-
 
 window.onerror = function (errorMsg, url, lineNumber, column, errorObj) {
   alert(
