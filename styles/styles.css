@@ -85,6 +85,7 @@ body {
   background-repeat: no-repeat;
   background-position: top left;
   margin: 0;
+    overflow-x: hidden;
 }
 .section-right {
   display: grid;
@@ -312,3 +313,4 @@ body {
   background: #e4405f;
   color: #fff;
 }
+
