@@ -71,12 +71,14 @@ cursor: pointer;
 }
 #title{
     margin-top: 3%;
-    color: black;
-    font-size: 7vw;
+    color: rgb(255,217,228);
+    font-size: 9vw;
     font-weight: bold;
     font-family: titleFont;
     display: flex;
     justify-content: center;
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 
 body {

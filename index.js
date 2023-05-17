@@ -42,9 +42,6 @@ done()
 "/events": () => {
 renderTemplate(templateEvents, "content")
 document.getElementById("title").innerText="Events";
-document.getElementById("title").style.paddingTop="3%";
-document.getElementById("title").style.fontSize="9vw";
-document.getElementById("title").style.color="rgb(255,217,228)"
 document.getElementById("news-box").style.display="none"
 document.getElementById("second-hand").style.display="none"
 document.getElementById("top-box").style.backgroundImage=`url("./images/bar2.png")`;
@@ -56,9 +53,6 @@ initEvents()
 "/services": () => {
     renderTemplate(templateServices, "content")
     document.getElementById("title").innerText="Services"
-    document.getElementById("title").style.paddingTop="3%"
-    document.getElementById("title").style.fontSize="9vw"
-    document.getElementById("title").style.color="rgb(255,217,228)"
     document.getElementById("news-box").style.display="none"
     document.getElementById("second-hand").style.display="none"
     document.getElementById("top-box").style.backgroundImage=`url("./images/butik.png")`
@@ -68,8 +62,6 @@ initEvents()
     renderTemplate(templateAbout, "content")
     document.getElementById("title").innerText="Om os"
     document.getElementById("title").style.paddingTop="0.5%"
-    document.getElementById("title").style.fontSize="9vw"
-    document.getElementById("title").style.color="rgb(255,217,228)"
     document.getElementById("news-box").style.display="none"
     document.getElementById("second-hand").style.display="none"
     document.getElementById("top-box").style.backgroundImage=`url("./images/about3.png")`
@@ -81,9 +73,6 @@ initEvents()
         renderTemplate(templateNews, "content")
         initNews()
         document.getElementById("title").innerText="Nyheder"
-        document.getElementById("title").style.paddingTop="3%"
-        document.getElementById("title").style.color="rgb(255,217,228)"
-        document.getElementById("title").style.fontSize="9vw"
         document.getElementById("news-box").style.display="none"
         document.getElementById("second-hand").style.display="none"
         document.getElementById("top-box").style.height="15%";
