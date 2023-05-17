@@ -19,62 +19,6 @@ window.addEventListener("load", async () => {
   const templateNews = await loadTemplate("./pages/news/news.html");
 
   adjustForMissingHash();
-
-
-router
-.hooks({
-before(done, match) {
-setActiveLink("menu", match.url)
-done()
-}
-})
-.on({
-"/events": () => {
-renderTemplate(templateEvents, "content")
-document.getElementById("title").innerText="Events";
-document.getElementById("news-box").style.display="none"
-document.getElementById("second-hand").style.display="none"
-document.getElementById("top-box").style.backgroundImage=`url("./images/bar2.png")`;
-document.getElementById("top-box").style.height="15%";
-document.getElementById("top-box").style.backgroundSize = "cover";
-document.getElementById("top-box").style.backgroundPosition = "center 65%";
-initEvents()
-},
-"/services": () => {
-    renderTemplate(templateServices, "content")
-    document.getElementById("title").innerText="Services"
-    document.getElementById("news-box").style.display="none"
-    document.getElementById("second-hand").style.display="none"
-    document.getElementById("top-box").style.backgroundImage=`url("./images/butik.png")`
-    document.getElementById("top-box").style.backgroundSize = "cover";
-    },
-"/about": () => {
-    renderTemplate(templateAbout, "content")
-    document.getElementById("title").innerText="Om os"
-    document.getElementById("title").style.paddingTop="0.5%"
-    document.getElementById("news-box").style.display="none"
-    document.getElementById("second-hand").style.display="none"
-    document.getElementById("top-box").style.backgroundImage=`url("./images/about3.png")`
-    document.getElementById("top-box").style.backgroundSize = "cover";
-    document.getElementById("top-box").style.backgroundPosition = "center 89%";
-    document.getElementById("top-box").style.height="9.1vw";
-},
-    "/news": () => {
-        renderTemplate(templateNews, "content")
-        initNews()
-        document.getElementById("title").innerText="Nyheder"
-        document.getElementById("news-box").style.display="none"
-        document.getElementById("second-hand").style.display="none"
-        document.getElementById("top-box").style.height="15%";
-        document.getElementById("top-box").style.backgroundImage=`url("./images/news2.png")`
-        document.getElementById("top-box").style.backgroundSize = "cover";
-        document.getElementById("top-box").style.backgroundPosition = "center";
-    }
-})
-.notFound(() => {
-})
-.resolve()
-
   const router = new Navigo("/", { hash: true });
   //Not especially nice, BUT MEANT to simplify things. Make the router global so it can be accessed from all js-files
   window.router = router;
@@ -89,49 +33,71 @@ initEvents()
     .on({
       "/events": () => {
         renderTemplate(templateEvents, "content");
-        document.getElementById("title").innerText = "events";
+        document.getElementById("title").innerText = "Events";
         document.getElementById("news-box").style.display = "none";
+        document.getElementById("second-hand").style.display = "none";
         document.getElementById(
           "top-box"
-        ).style.backgroundImage = `url("./images/2.jpg")`;
+        ).style.backgroundImage = `url("./images/bar2.png")`;
+        document.getElementById("top-box").style.height = "15%";
+        document.getElementById("top-box").style.backgroundSize = "cover";
+        document.getElementById("top-box").style.backgroundPosition =
+          "center 65%";
         initEvents();
       },
       "/services": () => {
         renderTemplate(templateServices, "content");
         document.getElementById("title").innerText = "Services";
         document.getElementById("news-box").style.display = "none";
+        document.getElementById("second-hand").style.display = "none";
         document.getElementById(
           "top-box"
-        ).style.backgroundImage = `url("./images/3.jpg")`;
+        ).style.backgroundImage = `url("./images/butik.png")`;
+        document.getElementById("top-box").style.backgroundSize = "cover";
       },
       "/about": () => {
         renderTemplate(templateAbout, "content");
-        document.getElementById("title").innerText = "Om Os";
+        document.getElementById("title").innerText = "Om os";
+        document.getElementById("title").style.paddingTop = "0.5%";
         document.getElementById("news-box").style.display = "none";
+        document.getElementById("second-hand").style.display = "none";
         document.getElementById(
           "top-box"
-        ).style.backgroundImage = `url("./images/4.jpg")`;
+        ).style.backgroundImage = `url("./images/about3.png")`;
+        document.getElementById("top-box").style.backgroundSize = "cover";
+        document.getElementById("top-box").style.backgroundPosition =
+          "center 89%";
+        document.getElementById("top-box").style.height = "9.1vw";
       },
       "/news": () => {
         renderTemplate(templateNews, "content");
         initNews();
+        document.getElementById("title").innerText = "Nyheder";
+        document.getElementById("news-box").style.display = "none";
+        document.getElementById("second-hand").style.display = "none";
+        document.getElementById("top-box").style.height = "15%";
+        document.getElementById(
+          "top-box"
+        ).style.backgroundImage = `url("./images/news2.png")`;
+        document.getElementById("top-box").style.backgroundSize = "cover";
+        document.getElementById("top-box").style.backgroundPosition = "center";
       },
     })
     .notFound(() => {})
     .resolve();
 
-
-window.onerror = function (errorMsg, url, lineNumber, column, errorObj) {
-  alert(
-    "Error: " +
-      errorMsg +
-      " Script: " +
-      url +
-      " Line: " +
-      lineNumber +
-      " Column: " +
-      column +
-      " StackTrace: " +
-      errorObj
-  );
-};
+  window.onerror = function (errorMsg, url, lineNumber, column, errorObj) {
+    alert(
+      "Error: " +
+        errorMsg +
+        " Script: " +
+        url +
+        " Line: " +
+        lineNumber +
+        " Column: " +
+        column +
+        " StackTrace: " +
+        errorObj
+    );
+  };
+});

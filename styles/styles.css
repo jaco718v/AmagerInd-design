@@ -46,7 +46,7 @@ footer div {
   font-family: standard;
   color: white;
   display: flex;
-  min-height: 80vh;
+  min-height: 50vw;
   display: grid;
   grid-template-rows: 1fr 2fr;
 }
@@ -85,34 +85,53 @@ body {
   background-repeat: no-repeat;
   background-position: top left;
   margin: 0;
-    overflow-x: hidden;
+  overflow-x: hidden;
 }
 .section-right {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  margin: 0;
-  margin: 2%;
-  margin-bottom: 25vh;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
   box-shadow: 2px 5px white;
   font-family: standard;
+  font-size: 1.5vw;
+  padding: 2vh;
+  padding-bottom: 4vh;
 }
-
 .section-left {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  margin-top: 0;
-  margin: 2%;
-  margin-bottom: 25vh;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
   box-shadow: -2px 5px 1px 1px white;
   font-family: standard;
+  font-size: 1.5vw;
+  padding: 2vh;
+  padding-bottom: 4vh;
 }
+.section-right div {
+  margin: 0 0.5vw 0;
+}
+.section-left div {
+  margin: 0 0.5vw 0;
+}
+
 .img-left {
   display: flex;
   justify-content: flex-end;
 }
 
+.img {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  border: solid 1px black;
+  object-fit: cover;
+}
+
 .mini-title {
   font-family: titleFont;
+  font-size: 3vw;
 }
 .navbar-nav {
   font-family: standard;
@@ -147,12 +166,21 @@ body {
     margin-top: 15vw;
     font-size: 9vw;
   }
-  footer {
-    font-size: 3vw;
+  footer div {
+    font-size: 2vw;
   }
   #btm-img {
     width: 40px;
     height: 40px;
+  }
+  .section-left {
+    font-size: 2vw;
+  }
+  .section-right {
+    font-size: 2vw;
+  }
+  .mini-title {
+    font-size: 4vw;
   }
 }
 
@@ -313,4 +341,3 @@ body {
   background: #e4405f;
   color: #fff;
 }
-
