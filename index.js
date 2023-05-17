@@ -39,7 +39,7 @@ document.getElementById("news-box").style.display="none"
 document.getElementById("second-hand").style.display="none"
 document.getElementById("top-box").style.backgroundImage=`url("./images/bar2.png")`;
 document.getElementById("top-box").style.height="15%";
-document.getElementById("top-box").style.backgroundSize = "100% auto";
+document.getElementById("top-box").style.backgroundSize = "cover";
 document.getElementById("top-box").style.backgroundPosition = "center 65%";
 initEvents()
 },
