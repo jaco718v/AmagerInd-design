@@ -20,9 +20,6 @@ window.addEventListener("load", async () => {
 
   adjustForMissingHash();
 
-  const router = new Navigo("/", { hash: true });
-  //Not especially nice, BUT MEANT to simplify things. Make the router global so it can be accessed from all js-files
-  window.router = router;
 
 router
 .hooks({
@@ -77,7 +74,52 @@ initEvents()
 .notFound(() => {
 })
 .resolve()
-});
+
+  const router = new Navigo("/", { hash: true });
+  //Not especially nice, BUT MEANT to simplify things. Make the router global so it can be accessed from all js-files
+  window.router = router;
+
+  router
+    .hooks({
+      before(done, match) {
+        setActiveLink("menu", match.url);
+        done();
+      },
+    })
+    .on({
+      "/events": () => {
+        renderTemplate(templateEvents, "content");
+        document.getElementById("title").innerText = "events";
+        document.getElementById("news-box").style.display = "none";
+        document.getElementById(
+          "top-box"
+        ).style.backgroundImage = `url("./images/2.jpg")`;
+        initEvents();
+      },
+      "/services": () => {
+        renderTemplate(templateServices, "content");
+        document.getElementById("title").innerText = "Services";
+        document.getElementById("news-box").style.display = "none";
+        document.getElementById(
+          "top-box"
+        ).style.backgroundImage = `url("./images/3.jpg")`;
+      },
+      "/about": () => {
+        renderTemplate(templateAbout, "content");
+        document.getElementById("title").innerText = "Om Os";
+        document.getElementById("news-box").style.display = "none";
+        document.getElementById(
+          "top-box"
+        ).style.backgroundImage = `url("./images/4.jpg")`;
+      },
+      "/news": () => {
+        renderTemplate(templateNews, "content");
+        initNews();
+      },
+    })
+    .notFound(() => {})
+    .resolve();
+
 
 window.onerror = function (errorMsg, url, lineNumber, column, errorObj) {
   alert(
