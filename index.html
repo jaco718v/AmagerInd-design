@@ -64,13 +64,35 @@ integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jI
                 <p style="font-size: 3vw; font-family: titleFont; padding-left: 5vw; color: rgb(255,217,228);padding-top: 3%">- Second hand vinyl</p>
                 <p style="font-size: 3vw; font-family: titleFont; padding-left: 5vw; color: rgb(255,217,228);padding-top: 1.5%">- Køb / Salg / Bytte</p>
             </div>
-        <div id="news-id" class="col">
-        <div id="news-box">
-            <h1>NYHED!</h1>
-                <img src="news-demo.png" id="news-img" style="width: 100%;height: auto;border: solid 1px black" height="150px" alt="">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident dolorem odio aspernatur maiores, excepturi doloremque omnis ducimus mollitia aliquam perferendis?</p>
-        </div>
-        </div>
+
+
+
+
+            <div id="news-id" class="col">
+                <div id="news-box">
+                    <h1 id="news-headline">NYHED!</h1>
+                    <img src="news-demo.png" id="news-img" style="width: 100%;height: auto;border: solid 1px black" height="150px" alt="">
+                    <p id="news-text">Loading...</p>
+                    <p id="news-priority">Loading...</p>
+                </div>
+            </div>
+        
+            <script>
+                
+                fetch('http://localhost:8080/api/news/')
+                .then(response => response.json())
+                .then(data => {
+                    
+
+                    data.sort((a, b) => a.priority - b.priority);
+                    
+                    document.getElementById('news-headline').innerText = data[0].headline;
+                    document.getElementById('news-text').innerText = data[0].textField;
+                    document.getElementById('news-priority').innerText = 'Priority: ' + data[0].priority;
+                })
+                .catch(error => console.error('Error:', error));
+            </script>
+
         </div>
     </section>
     <section id="content"></section>
