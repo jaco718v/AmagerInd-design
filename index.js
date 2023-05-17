@@ -137,7 +137,7 @@ initEvents()
     .notFound(() => {})
     .resolve();
 
-});
+
 
 window.onerror = function (errorMsg, url, lineNumber, column, errorObj) {
   alert(
