@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="icon" type="image/x-icon" href="./images/icon/logo_favicon.JPG">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
 integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
@@ -12,23 +13,9 @@ integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jI
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-WXnsH8YmNRp/XvNw1ZaJjEUN71Q+iHz0mz5GnLvkM/j9Gjc5Y5N5v5e/2r/3qF21Wvw+UexvRivPjNLpNcYcg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.4.0/purify.min.js"></script>
 <script src="index.js" type="module"></script>
-    <title>Document</title>
+    <title>Amager Records</title>
 </head>
 <body>
-   
-        
-       <!--
-        <header>  
-        <div><img src="4eva.jpg" alt="" height="150px"></div>
-       <div><h2 class="title"> Amager Records</h2></div>
-      <div id="buttons">
-        <section><h1> Om os</h1></section>
-        <section><h1> Events</h1></section>
-        <section><h1> Services</h1></section>
-        <section><h1> Kontakt</h1></section>
-      </div>
-       </header>
-      -->
       <nav class="navbar navbar-expand-lg navbar-light bg-light-grey" style="font-size:x-large; padding-left: 0.1%">
         <div class="container-fluid">
         <a class="navbar-brand" href="" style="color:lightcoral"><img src="./images/logo.png" class="rounded-circle" style="max-width: 100px"></a>
@@ -57,38 +44,42 @@ integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jI
         </nav>
         
     <section class="content" id="top-box">
-        <div id="title" style="font-size: 9vw; color: rgb(255,217,228); padding-top: 3%">Amager Records</div>
+
+      <div id="title">Amager Records</div>
         <div class="row">
-            <div id="second-hand" class="col">
-                <p style="font-size: 3vw; font-family: titleFont; padding-left: 5vw; color: rgb(255,217,228);padding-top: 3%">- Second hand vinyl</p>
-                <p style="font-size: 3vw; font-family: titleFont; padding-left: 5vw; color: rgb(255,217,228);padding-top: 1.5%">- Køb / Salg / Bytte</p>
+            <div id="second-hand" class="col" style="font-size: 5vw; font-family: titleFont; padding-left: 5vw; color: rgb(255,217,228)";>
+                <p>- Second hand vinyl <br>- Køb / Salg / Bytte</p>
             </div>
-        <div id="news-id" class="col">
-        <div id="news-box">
-            <h1>NYHED!</h1>
-                <img src="news-demo.png" id="news-img" style="width: 100%;height: auto;border: solid 1px black" height="150px" alt="">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident dolorem odio aspernatur maiores, excepturi doloremque omnis ducimus mollitia aliquam perferendis?</p>
-        </div>
+
+           <div id="news-id" class="col">
+                <div id="news-box">
+                    <h1 id="news-headline">NYHED!</h1>
+                    <img src="news-demo.png" id="news-img" style="width: 100%;height: auto;border: solid 1px black" height="150px" alt="">
+                    <p id="news-text">Loading...</p>
+                    <p id="news-priority">Loading...</p>
+                </div>
+            </div>
+
+            <script>
+                fetch('http://localhost:8080/api/news/')
+                .then(response => response.json())
+                .then(data => {
+
+
+                    data.sort((a, b) => a.priority - b.priority);
+
+                    document.getElementById('news-headline').innerText = data[0].headline;
+                    document.getElementById('news-text').innerText = data[0].textField;
+                    document.getElementById('news-priority').innerText = 'Priority: ' + data[0].priority;
+                })
+                .catch(error => console.error('Error:', error));
+            </script>
+
         </div>
         </div>
     </section>
     <section id="content"></section>
     <footer>
-  <div>Kontakt 
-    <div>Niels Kjøngsdal <br> +45 53 53 23 00 <br> info@amagerrecords.dk <br> <ul class="wrapper">
-    <li class="icon facebook" id="facebook">
-        <span class="tooltip">Facebook</span>
-        <span><i  class="fab fa-facebook-f"></i></span>
-    </li>
-    <li class="icon twitter">
-        <span class="tooltip">Tradera</span>
-        <span><i class="fab fa-twitter"></i></span>
-    </li>
-    <li class="icon instagram" id="instagram">
-        <span class="tooltip">Instagram</span>
-        <span><i class="fab fa-instagram"></i></span>
-    </li>
-</ul></div>
   <div style="font-size: 1.5vw">Kontakt:
     <div>Niels Kjøngsdal <br> +45 53 53 23 00 <br> info@amagerrecords.dk</div>
 </div>
@@ -96,10 +87,10 @@ integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jI
     <div><a href="https://www.google.com/maps/place/Amagerbrogade+135,+2300+K%C3%B8benhavn/@55.6567174,12.6066766,17z/data=!4m6!3m5!1s0x4652534d47cb8f93:0xcc1c5c8e5edaac82!8m2!3d55.6567174!4d12.6092515!16s%2Fg%2F11cs6txzd1!5m2!1e3!1e4" style="color: white"> Amagerbrogade 135, 2300 København S</a>
     <br><a href="https://www.facebook.com/amagerrecords/"><img style="width: 4vw; padding-top: 1.5%" src="./images/facebook.png" alt=""></a><a href="https://www.instagram.com/amagerrecords/"><img style="width: 4vw; padding-top: 1.5%" src="./images/instagram.png" alt=""></a></div>
   </div>
+
+
   <div id="img-box"><img id="btm-img" src="./images/logo.png" class="rounded-circle" style="max-width: 9vw;height: 9vw"></div>
       </footer>
-
-
        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
                integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
        </script>
