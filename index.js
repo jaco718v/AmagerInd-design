@@ -69,9 +69,9 @@ window.addEventListener("load", async () => {
           "center 89%";
         document.getElementById("top-box").style.height = "9.1vw";
       },
-      "/news": () => {
+      "/news": (match) => {
         renderTemplate(templateNews, "content");
-        initNews();
+        initNews(1, match);
         document.getElementById("title").innerText = "Nyheder";
         document.getElementById("news-box").style.display = "none";
         document.getElementById("second-hand").style.display = "none";
